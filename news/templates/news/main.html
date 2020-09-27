@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        {% load static %}
+        {% load tz %}
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/news.css' %}" type="text/css">
+        <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+        <title>Новости</title>
+    </head>
+    <body>
+
+        <header>
+            <div class="headerContainer">
+                <div class="sortNews">
+                    <form method="get">
+                        <input type="submit" name="category" value="Сначала новые" class="btn btn-outline-dark">
+                        <input type="submit" name="category" value="Сначала старые" class="btn btn-outline-dark">
+                    </form>
+                </div>
+
+                <div >
+                    <form method="get">
+                        <div style="display: flex;">
+                        <input type="search" placeholder="Поиск по новостям" name="search" class="form-control">
+                        <button type="submit" class="btn btn-outline-primary">Искать</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </header>
+
+        <div class="fixedContainer">
+            {% for new in news %}
+                <a href="{{ new.get_absolute_url}}">
+                    <div class="newsContainer">
+                        <div class="newImg">
+                            {% for img in images %}
+                                {% if img.news == new %}
+                                    <img src="{{img.img.url}}" height="100">
+                                {% endif %}
+                            {% endfor %}
+                            {% for link in image_links %}
+                                {% if link.news == new %}
+                                <img src="{{link.img_url}}" height="100">
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="newDesc">
+                            <h3>{{new.name}}</h3>
+                            <p>{{new.text}}</p>
+                            <span>Появилось на сайте: {{ new.date|timezone:"Europe/Moscow" }} (Мск)</span>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+
+    </body>
+</html>

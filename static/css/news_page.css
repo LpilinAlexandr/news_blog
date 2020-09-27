@@ -1,0 +1,94 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.newsMain {
+    width: 960px;
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.imgBox {
+    text-align: center;
+    margin: 20px;
+}
+
+.textBox {
+     width: 100%;
+}
+
+.commentBox {
+    display: flex;
+    flex-direction: column;
+    width: 960px;
+    margin: 0 auto;
+}
+
+#commentForm {
+    display: flex;
+    margin: 20px 0;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%:
+}
+
+#commentForm fieldset {
+}
+
+#commentForm legend {
+    text-align: center;
+}
+
+#commentForm textarea {
+    width: 100%;
+    height: 100px;
+}
+
+#commentForm button {
+    width: 100%
+    height: 40px;
+}
+
+#commentForm input {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+
+
+.commentElement {
+    margin-bottom: 25px;
+    padding: 0 1%;
+}
+
+.commentElement h5 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #266489;
+}
+
+.commentElement h6 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    float: right;
+}
+.commentElement p {
+    font-size: 15px;
+    margin: 0;
+}
+
+#commentList {
+    width: 100%;
+    height: 250px;
+    overflow-y: scroll;
+    margin-bottom: 30px;
+}
